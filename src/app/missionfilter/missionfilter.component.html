@@ -1,0 +1,15 @@
+<div>
+  <label for="year-select">Filter by Year:</label>
+  <select id="year-select" [(ngModel)]="selectedYear" (change)="getLaunchesByYear(selectedYear)">
+    <option *ngFor="let year of years" [ngValue]="year">{{year}}</option>
+  </select>
+</div>
+
+<div *ngIf="launches">
+  <h2>Launches in {{selectedYear}}</h2>
+  <ul>
+    <li *ngFor="let launch of launches">
+      {{launch.mission_name}} ({{launch.launch_year}})
+    </li>
+  </ul>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,18 +7,36 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./missionlist.component.css']
 })
 export class MissionlistComponent implements OnInit {
+  @Input() selectedYear: number = 0;
   launches: any[] = [];
   apiUrl = 'https://api.spacexdata.com/v3/launches';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.fetchLaunches();
+    this.getLaunches(); // get all launches when the component is initialized
   }
 
-  fetchLaunches(): void {
-    this.http.get<any[]>(this.apiUrl).subscribe((data) => {
-      this.launches = data;
-    });
+  ngOnChanges(): void {
+    if (this.selectedYear === 0) {
+      this.getLaunches();
+    } else {
+      this.getLaunchesByYear(this.selectedYear);
+    }
   }
+
+  getLaunches() {
+    this.http.get<any[]>(`https://api.spacexdata.com/v3/launches`)
+      .subscribe(data => {
+        this.launches = data;
+      });
+  }
+
+  getLaunchesByYear(year: number) {
+    this.http.get<any[]>(`https://api.spacexdata.com/v3/launches?launch_year=${year}`)
+      .subscribe(data => {
+        this.launches = data;
+      });
+  }
+
 }
