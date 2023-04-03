@@ -1,6 +1,7 @@
 <div class="modal" #myModal>
   <div class="modal-content">
-    <span class="close" (click)="closeModal()">&times;</span>
+    <!-- <span class="close" (click)="closeModal()">&times;</span> -->
+    <mat-icon class="close" (click)="closeModal()">close</mat-icon>
     <!-- Centralized Image With Class `launch-container` -->
     <img [src]="mission?.links?.mission_patch_small" alt="{{ mission.mission_name }} mission patch" class="launch-container image-modal" />
     <h2>Mission: {{ mission.mission_name }}</h2>

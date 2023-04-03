@@ -1,12 +1,13 @@
-<div *ngFor="let launch of launches">
-  <div class="launch-container">
-    <img [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }} mission patch" />
-    <div class="launch-text">
-      <h3>{{ launch.mission_name }}</h3>
-      <p>Launch year: {{ launch.launch_year }}</p>
-      <p>Details: {{ launch.details }}</p>
-      <button (click)="showMissionDetails(launch.flight_number)">View Details</button>
-    </div>
-  </div>
-  <hr />
+<div class="launch-list">
+    <mat-card *ngFor="let launch of launches" class="launch-container">
+      <img mat-card-image [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }} mission patch" />
+      <mat-card-content>
+        <h3>{{ launch.mission_name }}</h3>
+        <p>Launch year: {{ launch.launch_year }}</p>
+        <p>Details: {{ launch.details }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="showMissionDetails(launch.flight_number)">View Details</button>
+      </mat-card-actions>
+    </mat-card>
 </div>

@@ -14,3 +14,7 @@
   object-fit: contain; /* Ensure that the aspect ratio of the image is preserved */
   margin-top: 18px; /* Adjust the vertical position of the image */
 }
+
+.mat-mdc-card {
+  margin-bottom: 25px !important;
+}
