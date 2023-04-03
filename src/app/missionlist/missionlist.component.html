@@ -1,0 +1,12 @@
+<div *ngFor="let launch of launches">
+  <div class="launch-container">
+    <img [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }} mission patch" />
+    <div class="launch-text">
+      <h3>{{ launch.mission_name }}</h3>
+      <p>Launch year: {{ launch.launch_year }}</p>
+      <p>Details: {{ launch.details }}</p>
+    </div>
+  </div>
+  <hr />
+</div>
+  
