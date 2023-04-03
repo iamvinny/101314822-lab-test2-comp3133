@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { XyzComponent } from './xyz/xyz.component';
 import { MissionlistComponent } from './missionlist/missionlist.component';
 import { MissionfilterComponent } from './missionfilter/missionfilter.component';
+import { MissiondetailsComponent } from './missiondetails/missiondetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     XyzComponent,
     MissionlistComponent,
-    MissionfilterComponent
+    MissionfilterComponent,
+    MissiondetailsComponent
   ],
   imports: [
     BrowserModule,

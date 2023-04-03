@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-missionlist',
@@ -11,7 +12,7 @@ export class MissionlistComponent implements OnInit {
   launches: any[] = [];
   apiUrl = 'https://api.spacexdata.com/v3/launches';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.getLaunches(); // get all launches when the component is initialized
@@ -37,6 +38,10 @@ export class MissionlistComponent implements OnInit {
       .subscribe(data => {
         this.launches = data;
       });
+  }
+
+  showMissionDetails(flightNumber: string) {
+    this.router.navigate(['/missiondetails', flightNumber]);
   }
 
 }

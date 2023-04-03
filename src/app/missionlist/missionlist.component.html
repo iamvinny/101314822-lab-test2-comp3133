@@ -5,6 +5,7 @@
       <h3>{{ launch.mission_name }}</h3>
       <p>Launch year: {{ launch.launch_year }}</p>
       <p>Details: {{ launch.details }}</p>
+      <button (click)="showMissionDetails(launch.flight_number)">View Details</button>
     </div>
   </div>
   <hr />
